@@ -3,16 +3,17 @@ import numpy as np
 import life_logic
 
 WHITE = (255, 255, 255)
-GRAY = (255, 255, 255)
+GRAY = (200, 200, 200)
 BLACK = (0, 0, 0)
 
 WINDOW_SIZE = 480, 480
 
 MARGIN = 1  # Visual spacing between cells
 
-# npArray representing the board dimensions
-h = 120
-w = 120
+# Board dimensions
+h = 80 	# 120 XL	# 80 LG 	# 60 MD 	# 40 SM
+w = 80	# 120 XL	# 80 LG 	# 60 MD 	# 40 SM
+
 grid = np.zeros([h, w], int)
 
 life_logic.setup_random(grid)  # Random starting values - Comment out if you want a blank canvas
@@ -77,7 +78,7 @@ while start:
             dragging = False
 
     # Window background
-    screen.fill(GRAY)
+    screen.fill(WHITE)	# Change to GRAY for visible grid
 
     # Draw board and cell values
     for row in range(0, grid.shape[1]):
@@ -111,7 +112,7 @@ while playing:
             pygame.quit()
 
     # Background
-    screen.fill(GRAY)
+    screen.fill(WHITE)
 
     grid = life_logic.update_grid(grid)
 
